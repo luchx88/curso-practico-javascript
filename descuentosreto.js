@@ -14,11 +14,23 @@ function onClickButtonPriceDiscount() {
     const inputDiscount = document.getElementById("InputDiscount");
     const discountValue = inputDiscount.value;
 
-    const precioConDescuento = calcularPrecioConDescuento(priceValue, discountValue);
+    const discountCoupons = document.getElementById("DiscountCoupons");
+    const couponValue = discountCoupons.value;
+    
+    if (couponValue == 0) {
+        
+        const precioConDescuento = calcularPrecioConDescuento(priceValue, discountValue);
+        const resultP = document.getElementById("ResultP");
+        resultP.innerText = "Total a pagar: $" + precioConDescuento;
 
-    const resultP = document.getElementById("ResultP");
-    resultP.innerText = "Total a pagar: $" + precioConDescuento;
-    console.log("HOP");
+    } else {
+
+        const precioConDescuento = calcularPrecioConDescuento(priceValue, couponValue);
+        const resultP = document.getElementById("ResultP");
+        resultP.innerText = "Total a pagar: $" + precioConDescuento;
+    }
+
+    
 
 }
 
